@@ -81,12 +81,14 @@ pytest tests/ -v
 
 ## Schedule
 
-Both agents run at **16:23 UTC** via GitHub Actions cron:
+Both agents run **twice daily** Mon-Fri via GitHub Actions cron — once before the US market opens and once after it closes:
 
-| Agent | Schedule | UTC | PST (winter) | PDT (summer) |
+| Agent | Run | UTC | PST (winter) | PDT (summer) |
 |---|---|---|---|---|
-| Stock | Mon-Fri | 16:23 | 8:23 AM | 9:23 AM |
-| Crypto | Daily | 16:23 | 8:23 AM | 9:23 AM |
+| Stock | Pre-market | 14:23 | 6:23 AM | 7:23 AM |
+| Stock | After close | 21:23 | 1:23 PM | 2:23 PM |
+| Crypto | Pre-market | 14:23 | 6:23 AM | 7:23 AM |
+| Crypto | After close | 21:23 | 1:23 PM | 2:23 PM |
 
 The off-peak minute (`:23`) avoids GitHub's top-of-hour cron congestion.
 
@@ -94,7 +96,7 @@ You can also trigger manually from the Actions tab using "Run workflow".
 
 ### DST Note
 
-The cron runs at a fixed UTC time. During Pacific Standard Time (Nov-Mar), messages arrive ~8:23 AM. During Pacific Daylight Time (Mar-Nov), they arrive ~9:23 AM.
+The cron runs at fixed UTC times. During Pacific Standard Time (Nov-Mar), the morning run arrives ~6:23 AM and the after-close run at ~1:23 PM. During Pacific Daylight Time (Mar-Nov), they shift to ~7:23 AM and ~2:23 PM.
 
 ### Dormancy Warning
 

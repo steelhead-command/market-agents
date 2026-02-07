@@ -2,7 +2,8 @@ name: Stock Market Agent
 
 on:
   schedule:
-    - cron: '23 16 * * 1-5'  # 16:23 UTC Mon-Fri (~9:23 AM PST / 9:23 AM PDT)
+    - cron: '23 14 * * 1-5'  # 14:23 UTC Mon-Fri (~6:23 AM PST pre-market)
+    - cron: '23 21 * * 1-5'  # 21:23 UTC Mon-Fri (~1:23 PM PST after close)
   workflow_dispatch:           # Manual trigger
 
 jobs:

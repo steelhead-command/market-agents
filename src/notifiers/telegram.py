@@ -24,21 +24,25 @@ class TelegramNotifier:
 
         Returns True if all parts sent successfully.
         """
-        if len(html_text) <= MAX_MESSAGE_LENGTH:
-            return await self._send_single(html_text)
+        async with self.bot:
+            if len(html_text) <= MAX_MESSAGE_LENGTH:
+                return await self._send_single(html_text)
 
-        # Split on section boundaries
-        parts = self._split_message(html_text)
-        all_ok = True
-        for i, part in enumerate(parts):
-            logger.info("Sending message part %d/%d (%d chars)", i + 1, len(parts), len(part))
-            ok = await self._send_single(part)
-            if not ok:
-                all_ok = False
-        return all_ok
+            # Split on section boundaries
+            parts = self._split_message(html_text)
+            all_ok = True
+            for i, part in enumerate(parts):
+                logger.info("Sending message part %d/%d (%d chars)", i + 1, len(parts), len(part))
+                ok = await self._send_single(part)
+                if not ok:
+                    all_ok = False
+            return all_ok
 
     async def _send_single(self, html_text: str) -> bool:
-        """Send a single message with HTML parse mode, falling back to plain text."""
+        """Send a single message with HTML parse mode, falling back to plain text.
+
+        Must be called within an ``async with self.bot:`` block.
+        """
         try:
             await self.bot.send_message(
                 chat_id=self.chat_id,
@@ -51,7 +55,10 @@ class TelegramNotifier:
             return await self._send_plain_text(html_text)
 
     async def _send_plain_text(self, html_text: str) -> bool:
-        """Fallback: strip HTML tags and send as plain text."""
+        """Fallback: strip HTML tags and send as plain text.
+
+        Must be called within an ``async with self.bot:`` block.
+        """
         try:
             # Simple tag stripping
             import re
