@@ -119,7 +119,9 @@ class TestStockAgentRun:
     @patch("src.agents.stock_agent.TelegramNotifier")
     @patch("src.agents.stock_agent.yahoo_finance")
     @patch("src.agents.stock_agent.load_config")
-    async def test_sends_telegram(self, mock_load, mock_yf, mock_tg_cls, mock_config, sample_history):
+    async def test_sends_telegram(
+        self, mock_load, mock_yf, mock_tg_cls, mock_config, sample_history
+    ):
         mock_load.return_value = mock_config
         mock_notifier = AsyncMock()
         mock_notifier.send_message.return_value = True

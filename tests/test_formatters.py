@@ -24,7 +24,6 @@ from src.models.stock import (
 )
 from src.notifiers.telegram import escape_html
 
-
 NOW = datetime(2026, 2, 6, 16, 23, 0, tzinfo=timezone.utc)
 
 

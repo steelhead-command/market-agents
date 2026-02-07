@@ -1,10 +1,8 @@
-import os
-import tempfile
 
 import pytest
 import yaml
 
-from src.utils.config import AppConfig, TelegramConfig, load_config
+from src.utils.config import TelegramConfig, load_config
 
 
 @pytest.fixture

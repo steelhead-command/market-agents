@@ -39,8 +39,12 @@ def analyze_ticker(
 
     rsi = calculate_rsi(closes, ind_cfg.rsi_period)
     macd = calculate_macd(closes, ind_cfg.macd_fast, ind_cfg.macd_slow, ind_cfg.macd_signal)
-    sma_short = calculate_sma(closes, ind_cfg.sma_short) if len(closes) >= ind_cfg.sma_short else None
-    sma_long = calculate_sma(closes, ind_cfg.sma_long) if len(closes) >= ind_cfg.sma_long else None
+    sma_short = (
+        calculate_sma(closes, ind_cfg.sma_short) if len(closes) >= ind_cfg.sma_short else None
+    )
+    sma_long = (
+        calculate_sma(closes, ind_cfg.sma_long) if len(closes) >= ind_cfg.sma_long else None
+    )
     vol_spike = detect_volume_spike(volumes, alert_cfg.volume_spike)
 
     indicators = StockIndicators(

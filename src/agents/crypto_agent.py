@@ -8,7 +8,6 @@ from src.analyzers.technical import (
     calculate_macd,
     calculate_rsi,
     calculate_sma,
-    detect_volume_spike,
     get_signal_summary,
 )
 from src.data_sources import coingecko
@@ -33,12 +32,14 @@ def analyze_coin(
 
     closes = ohlc["close"]
     ind_cfg = config.crypto.indicators
-    alert_cfg = config.crypto.alerts
-
     rsi = calculate_rsi(closes, ind_cfg.rsi_period)
     macd = calculate_macd(closes, ind_cfg.macd_fast, ind_cfg.macd_slow, ind_cfg.macd_signal)
-    sma_short = calculate_sma(closes, ind_cfg.sma_short) if len(closes) >= ind_cfg.sma_short else None
-    sma_long = calculate_sma(closes, ind_cfg.sma_long) if len(closes) >= ind_cfg.sma_long else None
+    sma_short = (
+        calculate_sma(closes, ind_cfg.sma_short) if len(closes) >= ind_cfg.sma_short else None
+    )
+    sma_long = (
+        calculate_sma(closes, ind_cfg.sma_long) if len(closes) >= ind_cfg.sma_long else None
+    )
 
     # CoinGecko OHLC doesn't include volume, so skip volume spike for now
     indicators = CoinIndicators(
