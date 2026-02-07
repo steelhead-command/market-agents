@@ -1,0 +1,40 @@
+{
+  "quotes": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "price": 175.23,
+      "change_percent": 2.34,
+      "volume": 45000000,
+      "prev_close": 171.22,
+      "timestamp": "2026-02-06T16:00:00Z"
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corp.",
+      "price": 415.67,
+      "change_percent": -0.45,
+      "volume": 22000000,
+      "prev_close": 417.55,
+      "timestamp": "2026-02-06T16:00:00Z"
+    }
+  ],
+  "market_overview": [
+    {"name": "S&P 500", "symbol": "SPY", "price": 523.45, "change_percent": 0.78},
+    {"name": "NASDAQ", "symbol": "QQQ", "price": 467.89, "change_percent": 1.02},
+    {"name": "Dow Jones", "symbol": "DIA", "price": 398.12, "change_percent": 0.34}
+  ],
+  "sectors": [
+    {"name": "Technology", "symbol": "XLK", "change_percent": 1.85},
+    {"name": "Healthcare", "symbol": "XLV", "change_percent": 0.45},
+    {"name": "Energy", "symbol": "XLE", "change_percent": -1.23}
+  ],
+  "gainers": [
+    {"symbol": "NVDA", "name": "NVIDIA", "change_percent": 8.45},
+    {"symbol": "AMD", "name": "AMD", "change_percent": 6.23}
+  ],
+  "losers": [
+    {"symbol": "XOM", "name": "Exxon", "change_percent": -5.67},
+    {"symbol": "CVX", "name": "Chevron", "change_percent": -4.23}
+  ]
+}

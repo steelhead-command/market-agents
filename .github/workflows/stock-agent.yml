@@ -1,0 +1,26 @@
+name: Stock Market Agent
+
+on:
+  schedule:
+    - cron: '23 16 * * 1-5'  # 16:23 UTC Mon-Fri (~9:23 AM PST / 9:23 AM PDT)
+  workflow_dispatch:           # Manual trigger
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run stock agent
+        run: python -m src.agents.stock_agent
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

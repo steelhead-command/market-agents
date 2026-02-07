@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "market-agents"
+version = "0.1.0"
+description = "Daily market briefings via Telegram"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.1.0,<3.0",
+    "yfinance>=0.2.36",
+    "requests>=2.31.0",
+    "python-telegram-bot>=21.0",
+    "pyyaml>=6.0.1",
+    "pydantic>=2.5.0",
+    "tenacity>=8.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-mock>=3.12.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true

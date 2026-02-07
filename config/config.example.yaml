@@ -1,0 +1,62 @@
+stock:
+  watchlist:
+    - symbol: AAPL
+      name: Apple Inc.
+    - symbol: MSFT
+      name: Microsoft Corp.
+    - symbol: GOOGL
+      name: Alphabet Inc.
+    - symbol: AMZN
+      name: Amazon.com Inc.
+    - symbol: NVDA
+      name: NVIDIA Corp.
+
+  alerts:
+    rsi_overbought: 70
+    rsi_oversold: 30
+    volume_spike: 2.0
+
+  indicators:
+    rsi_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    sma_short: 20
+    sma_long: 50
+
+  sections:
+    watchlist: true
+    market_overview: true
+    sector_performance: true
+    top_movers: true
+
+crypto:
+  portfolio:
+    - id: bitcoin
+      symbol: BTC
+      name: Bitcoin
+    - id: ethereum
+      symbol: ETH
+      name: Ethereum
+    - id: solana
+      symbol: SOL
+      name: Solana
+
+  alerts:
+    rsi_overbought: 70
+    rsi_oversold: 30
+    volume_spike: 2.0
+
+  indicators:
+    rsi_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    sma_short: 20
+    sma_long: 50
+
+  sections:
+    portfolio: true
+    market_overview: true
+    trending: true
+    fear_greed: true

@@ -1,0 +1,56 @@
+{
+  "coins_market": [
+    {
+      "id": "bitcoin",
+      "symbol": "btc",
+      "name": "Bitcoin",
+      "current_price": 97500.00,
+      "price_change_percentage_24h": 2.15,
+      "price_change_percentage_7d_in_currency": 5.43,
+      "market_cap": 1920000000000,
+      "total_volume": 35000000000,
+      "market_cap_rank": 1
+    },
+    {
+      "id": "ethereum",
+      "symbol": "eth",
+      "name": "Ethereum",
+      "current_price": 3250.00,
+      "price_change_percentage_24h": -1.23,
+      "price_change_percentage_7d_in_currency": 3.12,
+      "market_cap": 390000000000,
+      "total_volume": 18000000000,
+      "market_cap_rank": 2
+    }
+  ],
+  "global": {
+    "data": {
+      "total_market_cap": {"usd": 2800000000000},
+      "total_volume": {"usd": 120000000000},
+      "market_cap_percentage": {"btc": 52.3, "eth": 16.8},
+      "market_cap_change_percentage_24h_usd": 1.45
+    }
+  },
+  "trending": {
+    "coins": [
+      {
+        "item": {
+          "id": "pepe",
+          "symbol": "PEPE",
+          "name": "Pepe",
+          "market_cap_rank": 25,
+          "data": {"price_change_percentage_24h": {"usd": 15.6}}
+        }
+      }
+    ]
+  },
+  "fear_greed": {
+    "data": [
+      {
+        "value": "72",
+        "value_classification": "Greed",
+        "timestamp": "1738800000"
+      }
+    ]
+  }
+}
